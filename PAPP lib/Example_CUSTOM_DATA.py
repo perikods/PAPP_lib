@@ -32,9 +32,9 @@ def print_raw_frame(data):
 def main():    
     ## Generate Custom data frame
     my_frame=PAPP_frame()
-    my_frame.addr=int(sys.argv[2],16)               ## Destination address
-    my_frame.flen=len(data)+1                       ## CMD + DATA
-    my_frame.data_cmd=PAPP_frame_cmd.CUSTOM_DATA    ## Type
+    my_frame.addr=int(sys.argv[2],16)                ## Destination address
+    my_frame.flen=len(data)+1                        ## CMD + DATA
+    my_frame.data_cmd=PAPP_frame_cmd.CUSTOM_DATA     ## Type
     my_frame.data= data                              ## Data
     
     my_frame.WritePAPPFrame(s.write)                 ## Write to COM port
@@ -50,10 +50,10 @@ def main():
         my_read_frame.WritePAPPFrame(print_raw_frame) ## Write to console raw frame
         print ('--------------------')
         print my_read_frame                           ## Write to console object details
-        RSSI_lr, RSSI_rl= unpack('BB',my_read_frame.data[-2:])   
+        RSSI_lr, RSSI_rl= unpack('BB',my_read_frame.data[-2:])  ## Unpack RSSI (last two bytes)
+        ## Print RSSI, both directions   
         print ('\nRSSI (local -> remote): %d' %((RSSI_lr/1.9)-127))
-        print ('RSSI (local <- remote): %d' %((RSSI_rl/1.9)-127))
-          
+        print ('RSSI (local <- remote): %d' %((RSSI_rl/1.9)-127))          
     
     else:
         print ('Timeout')
