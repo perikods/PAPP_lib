@@ -3,11 +3,7 @@ Created on 15 Apr 2014
 
 @author: PedroDiaz
 '''
-'''
-Created on 14/04/2014
 
-@author: Pedro
-'''
 from PAPP_lib import PAPP_frame, PAPP_frame_cmd, ReadPAPPFrame
 from struct import pack, unpack
 import serial
