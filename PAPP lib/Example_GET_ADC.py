@@ -23,7 +23,7 @@ s.timeout=1
 
 ## ADC Channel to read
 data=int(sys.argv[3])
-ADC_channel=pack('B',data)                          ## pack to match object type
+channel=pack('B',data)                          ## pack to match object type
 
 #===============================================================================
 # Prints the raw frame in console
@@ -40,7 +40,7 @@ def main():
     my_frame.addr=int(sys.argv[2],16)                ## Destination address
     my_frame.flen=2                                  ## CMD + channel 
     my_frame.data_cmd=PAPP_frame_cmd.GET_ADC         ## Type
-    my_frame.data= ADC_channel                       ## PORTA value to set in remote node
+    my_frame.data= channel                       ## PORTA value to set in remote node
     
     my_frame.WritePAPPFrame(s.write)                 ## Write to COM port
     print ('Raw frame sent:')
@@ -57,7 +57,7 @@ def main():
         print my_read_frame                           ## Write to console object details
         ## Unpack ADC channel, data and RSSI (last two bytes)
         ADC_channel, ADC_data, RSSI_lr, RSSI_rl= unpack('<BHBB',my_read_frame.data)
-        print ('\nADC data of channel (%d): 0x%04X' % (ADC_channel, ADC_data)) 
+        print ('\nADC data of channel (%d): %d' % (ADC_channel, ADC_data)) 
         ## Print RSSI, both directions   
         print ('RSSI (local -> remote): %d' %((RSSI_lr/1.9)-127))
         print ('RSSI (local <- remote): %d' %((RSSI_rl/1.9)-127))          
