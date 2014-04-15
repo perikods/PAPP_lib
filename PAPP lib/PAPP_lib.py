@@ -123,7 +123,7 @@ class PAPP_frame (object):
     #===========================================================================
     def generateChecksum(self):
         checksum = 0;
-        frame = pack(">BHBB",
+        frame = pack("<BHBB",
                      self.st_frame,
                      self.addr,
                      self.flen,
