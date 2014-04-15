@@ -26,7 +26,7 @@ def print_raw_frame(data):
 # Main block
 #===============================================================================
 def main():    
-    ## Generate Custom data frame
+    ## Generate Get PORTA frame
     my_frame=PAPP_frame()
     my_frame.addr=int(sys.argv[2],16)                ## Destination address
     my_frame.flen=1                                  ## CMD 
