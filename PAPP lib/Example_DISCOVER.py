@@ -52,7 +52,7 @@ def main():
             my_read_frame.WritePAPPFrame(print_raw_frame) ## Write to console raw frame
             print ('--------------------')
             print my_read_frame                           ## Write to console object details
-            ## Unpack PORTA data and RSSI (last two bytes)
+            ## Unpack DISCOVER NAME and RSSI (last two bytes)
             NAME, RSSI_lr, RSSI_rl= unpack('10sBB',my_read_frame.data)
             print ('\nNAME: %s' % NAME) 
             ## Print RSSI, both directions   
