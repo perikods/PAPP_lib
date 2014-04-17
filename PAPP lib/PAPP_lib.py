@@ -136,9 +136,8 @@ class PAPP_frame (object):
         checksum&=0xFF
         checksum^=0xFF
         checksum+=1
-        return checksum 
-
-        return (checksum & 0x000000FF)
+        return checksum
+        
     #===========================================================================
     # Method to write the frame 
     #===========================================================================
