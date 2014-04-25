@@ -47,7 +47,7 @@ def main():
         
         discover_again = False
         
-        if my_read_frame is not None and my_read_frame.data_cmd==PAPP_frame_cmd.GET_PORTA_RSP:
+        if my_read_frame is not None and my_read_frame.data_cmd==PAPP_frame_cmd.DISCOVER_RSP:
             print ('Raw frame received:')        
             my_read_frame.WritePAPPFrame(print_raw_frame) ## Write to console raw frame
             print ('--------------------')
@@ -61,8 +61,8 @@ def main():
             
             discover_again = True          
         
-        else:
-            print ('Timeout')
+        else:            
+            print ('Stop discovering')
     s.close()
 
 if __name__ == "__main__":
