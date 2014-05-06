@@ -19,6 +19,7 @@ class PAPP_frame_cmd (object):
     DISCOVER=        0x04
     SET_CONFIG=      0x06
     GET_CONFIG=      0x07
+    SET_RGB=         0x08
     GET_PORTA_RSP=   0x12
     GET_ADC_RSP=     0x13
     DISCOVER_RSP=    0x14
@@ -33,7 +34,7 @@ class PAPP_frame_cmd (object):
     
     frame_names = ["<unknown>"] * 256
     frame_names [0:0x05] = ["CUSTOM_DATA", "SET_PORTA", "GET_PORTA", "GET_ADC", "DISCOVER" ]
-    frame_names [0x06:0x08] = ["SET_CONFIG", "GET_CONFIG" ]
+    frame_names [0x06:0x09] = ["SET_CONFIG", "GET_CONFIG", "SET_RGB" ]
     frame_names [0x12:0x18] = ["GET_PORTA_RSP", "GET_ADC_RSP", "DISCOVER_RSP", "ACK_RSP", "SET_CONFIG_OK", "GET_CONFIG_RSP" ]
     frame_names [0xE0:0xE3] = ["BAD_FRAME_ERROR", "CCA_ERROR", "BUSY_ERROR"]
     
