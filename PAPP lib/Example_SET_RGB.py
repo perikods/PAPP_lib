@@ -10,7 +10,7 @@ import sys
 
 ## Script usage:
 ## python Example_SET_RGB.py <COM Port> <addr in hex> <R> <G> <B>
-## e.g. python Example_SET_PORTA.py com2 0x2 0x10 0x2A 0xBC
+## e.g. python Example_SET_RGB.py com2 0x2 0x10 0x2A 0xBC
 
 ## COM Port configuration
 s = serial.Serial(sys.argv[1])
@@ -32,7 +32,7 @@ def print_raw_frame(data):
 # Main block
 #===============================================================================
 def main():    
-    ## Generate Set PORTA frame
+    ## Generate Set RGB frame
     my_frame=PAPP_frame()
     my_frame.addr=int(sys.argv[2],16)                ## Destination address
     my_frame.flen=4                                  ## CMD + RGB
